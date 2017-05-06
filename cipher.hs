@@ -41,3 +41,25 @@ doVigenere n p (c:rem)
 
 vigenere :: String -> String -> String
 vigenere p s = doVigenere 0 p s
+
+
+runCaesar :: IO ()
+runCaesar = do
+  putStr "How many characters to shift? "
+  shiftInput <- readLn
+  putStr "Enter a string to encode: "
+  inputString <- getLine
+  putStrLn $ "Result: " ++ (caesar shiftInput inputString)
+
+runVigenere :: IO ()
+runVigenere = do
+  putStr "Enter Passkey: "
+  passKey <- getLine
+  putStr "Enter a string to encode: "
+  inputString <- getLine
+  putStrLn $ "Result: " ++ (vigenere passKey inputString)
+
+test :: IO ()
+test = do
+  myInput <- readLn
+  print $ (myInput :: Int) + 5
